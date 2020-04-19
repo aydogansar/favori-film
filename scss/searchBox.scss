@@ -1,0 +1,24 @@
+#SearchBox {
+  width: 100%;
+  background: $secondary-color;
+  padding: 10px;
+
+  form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .btn {
+    margin-left: 10px;
+    font-weight: bold;
+  }
+  .title {
+    width: 40%;
+  }
+  input {
+    border: 0;
+    outline: 0;
+    padding: 10px;
+    margin-right: 5px;
+  }
+}

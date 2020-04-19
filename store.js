@@ -1,11 +1,13 @@
 import { createContext } from "react";
-import { useLocalStore, useObserver } from "mobx-react";
+import { useLocalStore } from "mobx-react";
 
 export const StoreContext = createContext();
 
 const StoreProvider = ({ children }) => {
   const store = useLocalStore(() => ({
-    Film: {},
+    Films: {
+      Search: [],
+    },
     Favorites: [],
   }));
   return (

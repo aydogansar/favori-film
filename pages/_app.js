@@ -1,9 +1,12 @@
 import StoreProvider from "../store";
+import Layout from "../components/Layout";
 
 const MyApp = ({ Component, pageProps }) => {
   return (
     <StoreProvider>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </StoreProvider>
   );
 };
