@@ -1,0 +1,86 @@
+#Results {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
+  #FilmList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    flex-grow: 4;
+  }
+  .pages ul {
+    color: #fff;
+    list-style-type: none;
+    cursor: pointer;
+    text-align: center;
+  }
+  .pages li {
+    padding: 5px 10px 5px 10px;
+    background: $primary-color;
+    transition: all 0.3s ease-in-out;
+    margin-left: -40px;
+  }
+  .pages li:hover {
+    background: $secondary-color;
+    transform: scale(1.2, 1.2);
+  }
+  .pages li.active {
+    background: $secondary-color;
+    transform: scale(1.2, 1.2);
+  }
+}
+
+.filmBox {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  background: transparent;
+  color: #fff;
+  text-align: center;
+  border: 1px solid #ddd;
+  width: 180px;
+  height: 250px;
+  margin: 2px;
+  border: 1px solid $secondary-color;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  .detailCard {
+    transform: rotateY(180deg);
+    opacity: 0;
+    padding: 15px;
+    position: absolute;
+    width: 180px;
+    height: 250px;
+    background: rgb(41, 52, 98);
+    background: linear-gradient(
+      180deg,
+      rgba(41, 52, 98, 1) 0%,
+      rgba(0, 0, 0, 1) 100%
+    );
+    cursor: pointer;
+    transition: 0.5s all ease-in-out;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .favorite.active {
+      color: $primary-color;
+    }
+
+    .favorite:hover {
+      color: $primary-color;
+    }
+  }
+}
+.filmBox:hover .detailCard {
+  transform: rotateY(360deg);
+  opacity: 1;
+}

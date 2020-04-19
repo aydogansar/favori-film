@@ -18,7 +18,8 @@
     "node-sass": "^4.13.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-pose": "^4.0.10"
+    "react-pose": "^4.0.10",
+    "react-tooltip": "^4.2.5"
   },
   "devDependencies": {}
 }

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { StoreContext } from "../store";
-import axios from "axios";
+import { getFilms } from "../functions";
 
 const initialState = {
   title: "",
@@ -27,13 +27,13 @@ const SearchBox = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    await axios
-      .get(
-        `http://www.omdbapi.com/?s=${state.title}&y=${state.year}&apikey=7510227d`
-      )
-      .then((res) => {
-        store.Films = res.data;
-      });
+    const { title, year } = state;
+    store.SearchParams = {
+      title,
+      year,
+      page: 1,
+    };
+    getFilms(store);
   };
   return (
     <div id="SearchBox">
@@ -46,7 +46,8 @@ const SearchBox = () => {
         />
         <input
           type="number"
-          placeholder="Filmin Çıkış Yılı"
+          className="year"
+          placeholder="Çıkış Yılı"
           onChange={changeYearHandler}
         />
         <select name="plot">

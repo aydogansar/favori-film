@@ -1,15 +1,18 @@
 import React from "react";
 import SearchBox from "../components/SearchBox";
 import FilmList from "../components/FilmList";
+import Pages from "../components/Pages";
 
 const Home = () => {
   return (
     <div className="container-fluid">
-      <div id="Results">
-        <FilmList />
-      </div>
-      <div></div>
       <SearchBox />
+      <div id="Results">
+        <div id="FilmList">
+          <FilmList />
+        </div>
+        <Pages />
+      </div>
     </div>
   );
 };

@@ -5,6 +5,11 @@ export const StoreContext = createContext();
 
 const StoreProvider = ({ children }) => {
   const store = useLocalStore(() => ({
+    SearchParams: {
+      title: "",
+      year: "",
+      page: 1,
+    },
     Films: {
       Search: [],
     },
