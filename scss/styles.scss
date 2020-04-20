@@ -29,3 +29,19 @@ h6 {
   width: 100%;
   flex-direction: column;
 }
+
+header {
+  background: $secondary-color;
+  color: #fff;
+  font-family: $header-font;
+  padding: 10px;
+  li {
+    display: inline;
+    list-style-type: none;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  li:hover {
+    color: $primary-color;
+  }
+}

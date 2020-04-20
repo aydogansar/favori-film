@@ -3,7 +3,8 @@ import { useObserver } from "mobx-react";
 import posed from "react-pose";
 import { StoreContext } from "../store";
 import { toggleFavorites } from "../functions";
-import ReactTooltip from "react-tooltip";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 const Box = posed.div({
   closed: {
@@ -15,18 +16,33 @@ const Box = posed.div({
     opacity: 1,
   },
 });
-const FilmBox = ({ imdbId, title, poster, year }) => {
+const FilmBox = ({ id, title, poster, year }) => {
   const store = useContext(StoreContext);
   const [open, setOpen] = useState(false);
+  const [favorite, setFavorite] = useState(false);
+
+  const isFavorite = (id) => {
+    store.Favorites.map((film) => {
+      return film.imdbID;
+    }).indexOf(id) !== -1
+      ? setFavorite(true)
+      : setFavorite(false);
+  };
   useEffect(() => {
     setOpen(true);
+    isFavorite(id);
   }, []);
-
   const clickHandler = () => {
-    toggleFavorites(store, { id: imdbId, title, poster, year });
+    toggleFavorites(store, { id, title, poster, year });
+    isFavorite(id);
   };
+  const renderTooltip = (props) => (
+    <Tooltip {...props}>
+      {favorite ? "Favorilerden Çıkar" : "Favorilere Ekle"}
+    </Tooltip>
+  );
   return useObserver(() => (
-    <Box className="filmBox" pose={open ? "open" : "closed"}>
+    <Box className="filmBox" id={id} pose={open ? "open" : "closed"}>
       <img
         src={
           poster === "N/A"
@@ -37,19 +53,11 @@ const FilmBox = ({ imdbId, title, poster, year }) => {
       <span className="detailCard">
         <h5>{title}</h5>
         <span>{year}</span>
-        <span
-          id={imdbId}
-          className={
-            store.Favorites.map((film) => {
-              return film.id;
-            }).indexOf(imdbId) !== -1
-              ? "favorite active"
-              : "favorite"
-          }
-          onClick={clickHandler}
-        >
-          <i className="far fa-heart"></i>Favorilerime Ekle
-        </span>
+        <OverlayTrigger placement="top" overlay={renderTooltip}>
+          <span className="favorite" onClick={clickHandler}>
+            <img src={favorite ? "./favorite_active.png" : "./favorite.png"} />
+          </span>
+        </OverlayTrigger>
       </span>
     </Box>
   ));

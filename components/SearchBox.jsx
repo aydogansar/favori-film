@@ -37,27 +37,29 @@ const SearchBox = () => {
   };
   return (
     <div id="SearchBox">
-      <form onSubmit={submitHandler}>
-        <input
-          type="text"
-          className="title"
-          placeholder="Film İsmi"
-          onChange={changeTitleHandler}
-        />
-        <input
-          type="number"
-          className="year"
-          placeholder="Çıkış Yılı"
-          onChange={changeYearHandler}
-        />
-        <select name="plot">
-          <option>Short</option>
-          <option>Full</option>
-        </select>
-        <button type="submit" className="btn btn-warning">
-          Ara
-        </button>
-      </form>
+      <div className="searchContainer">
+        <form onSubmit={submitHandler}>
+          <input
+            type="text"
+            className="title"
+            placeholder="Film İsmi"
+            onChange={changeTitleHandler}
+          />
+          <input
+            type="number"
+            className="year"
+            placeholder="Çıkış Yılı"
+            onChange={changeYearHandler}
+          />
+          <select name="plot">
+            <option>Short</option>
+            <option>Full</option>
+          </select>
+          <button type="submit" className="btn btn-warning">
+            Ara
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

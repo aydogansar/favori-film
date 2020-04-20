@@ -3,14 +3,14 @@ import { useObserver } from "mobx-react";
 import { StoreContext } from "../store";
 import FilmBox from "./FilmBox";
 
-const FilmList = () => {
+const FilmList = ({ type }) => {
   const store = useContext(StoreContext);
   return useObserver(() =>
-    store.Films.Search.map((Film) => {
+    (type === "search" ? store.Films.Search : store.Favorites).map((Film) => {
       return (
         <FilmBox
           key={Film.imdbID}
-          imdbId={Film.imdbID}
+          id={Film.imdbID}
           title={Film.Title}
           poster={Film.Poster}
           year={Film.Year}

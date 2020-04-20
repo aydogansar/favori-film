@@ -9,7 +9,7 @@ const Home = () => {
       <SearchBox />
       <div id="Results">
         <div id="FilmList">
-          <FilmList />
+          <FilmList type="search" />
         </div>
         <Pages />
       </div>

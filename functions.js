@@ -14,16 +14,15 @@ export const getFilms = async (store) => {
 
 export const toggleFavorites = (store, { id, title, poster, year }) => {
   const Film = {
-    id,
-    title,
-    poster,
-    year,
+    imdbID: id,
+    Title: title,
+    Poster: poster,
+    Year: year,
   };
   const index = store.Favorites.map((film) => {
-    return film.id;
+    return film.imdbID;
   }).indexOf(id);
-  index === -1 ? store.Favorites.push(Film) : store.Favorites.splice(index, 1);
 
+  index === -1 ? store.Favorites.push(Film) : store.Favorites.splice(index, 1);
   localStorage.setItem("Favorites", JSON.stringify(store.Favorites));
-  console.log(store.Favorites);
 };

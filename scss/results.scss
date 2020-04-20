@@ -71,16 +71,15 @@
     flex-direction: column;
     justify-content: space-between;
 
-    .favorite.active {
-      color: $primary-color;
-    }
-
-    .favorite:hover {
-      color: $primary-color;
+    .favorite {
+      border-radius: 50%;
+      img {
+        width: 32px;
+      }
     }
   }
 }
 .filmBox:hover .detailCard {
   transform: rotateY(360deg);
-  opacity: 1;
+  opacity: 0.9;
 }
