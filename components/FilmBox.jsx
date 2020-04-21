@@ -52,7 +52,9 @@ const FilmBox = ({ id, title, poster, year }) => {
       />
       <span className="detailCard">
         <h5>{title}</h5>
-        <span>{year}</span>
+        <span>
+          <b>{year}</b>
+        </span>
         <OverlayTrigger placement="top" overlay={renderTooltip}>
           <span className="favorite" onClick={clickHandler}>
             <img src={favorite ? "./favorite_active.png" : "./favorite.png"} />

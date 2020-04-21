@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export const getFilms = async (store) => {
-  console.log(store.Films);
   //Dönen sonuçların içerisinde imdb puanları yok.
+  console.log(store.Films);
   await axios
     .get(
       `http://www.omdbapi.com/?s=${store.SearchParams.title}&y=${store.SearchParams.year}&page=${store.SearchParams.page}&apikey=7510227d`

@@ -5,13 +5,11 @@ import { getFilms } from "../functions";
 const initialState = {
   title: "",
   year: "",
-  plot: "",
 };
 
 const SearchBox = () => {
   const store = useContext(StoreContext);
   const [state, setState] = useState(initialState);
-
   const changeTitleHandler = (e) => {
     setState({
       ...state,
@@ -24,7 +22,6 @@ const SearchBox = () => {
       year: e.target.value,
     });
   };
-
   const submitHandler = async (e) => {
     e.preventDefault();
     const { title, year } = state;
@@ -51,10 +48,6 @@ const SearchBox = () => {
             placeholder="Çıkış Yılı"
             onChange={changeYearHandler}
           />
-          <select name="plot">
-            <option>Short</option>
-            <option>Full</option>
-          </select>
           <button type="submit" className="btn btn-warning">
             Ara
           </button>
