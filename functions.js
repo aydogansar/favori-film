@@ -5,7 +5,7 @@ export const getFilms = async (store) => {
   console.log(store.Films);
   await axios
     .get(
-      `http://www.omdbapi.com/?s=${store.SearchParams.title}&y=${store.SearchParams.year}&page=${store.SearchParams.page}&apikey=7510227d`
+      `https://www.omdbapi.com/?s=${store.SearchParams.title}&y=${store.SearchParams.year}&page=${store.SearchParams.page}&apikey=7510227d`
     )
     .then((res) => {
       if (res.data.Search) {
