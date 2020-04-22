@@ -14,6 +14,19 @@ const StoreProvider = ({ children }) => {
       Search: [],
     },
     Favorites: [],
+    menus: [
+      {
+        id: "home",
+        href: "/",
+        name: "Ana Sayfa",
+      },
+      {
+        id: "favorites",
+        href: "/favorites",
+        name: "Favori Filmlerim",
+      },
+    ],
+    hamburgerMenuOpen: false,
   }));
   return (
     <StoreContext.Provider value={store}>{children}</StoreContext.Provider>

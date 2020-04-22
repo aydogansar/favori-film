@@ -51,7 +51,9 @@ const FilmBox = ({ id, title, poster, year }) => {
         }
       />
       <span className="detailCard">
-        <h5>{title}</h5>
+        <span className="title">
+          <h5>{title}</h5>
+        </span>
         <span>
           <b>{year}</b>
         </span>

@@ -42,11 +42,10 @@
   background: transparent;
   color: #fff;
   text-align: center;
-  border: 1px solid #ddd;
   width: 180px;
   height: 250px;
   margin: 2px;
-  border: 1px solid $secondary-color;
+  box-shadow: 1px 1px 1px #333;
 
   img {
     width: 100%;
@@ -72,6 +71,10 @@
     flex-direction: column;
     justify-content: space-between;
 
+    .title {
+      max-height: 180;
+      overflow: hidden;
+    }
     .favorite {
       border-radius: 50%;
       img {
@@ -85,7 +88,10 @@
   transform: rotateY(360deg);
   opacity: 0.9;
 }
-
+h4.message {
+  position: relative;
+  top: 35vh;
+}
 @media only screen and (max-width: 767px) {
   /* phones */
 

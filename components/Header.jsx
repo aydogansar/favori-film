@@ -1,19 +1,18 @@
 import React from "react";
-import Link from "next/link";
+import Nav from "./Nav";
+import HamburgerMenuComp from "./HamburgerMenuComp";
+import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   return (
     <header>
-      <nav>
-        <ul>
-          <Link href="/">
-            <li>Ana Sayfa</li>
-          </Link>
-          <Link href="/favorites">
-            <li>Favori Filmlerim</li>
-          </Link>
-        </ul>
-      </nav>
+      <h4 id="logo">
+        <img src="./logo.png" />
+        FAVORİFİLM
+      </h4>
+      <Nav id="menus" />
+      <HamburgerMenuComp />
+      <MobileMenu />
     </header>
   );
 };

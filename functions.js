@@ -8,7 +8,12 @@ export const getFilms = async (store) => {
       `http://www.omdbapi.com/?s=${store.SearchParams.title}&y=${store.SearchParams.year}&page=${store.SearchParams.page}&apikey=7510227d`
     )
     .then((res) => {
-      store.Films = res.data;
+      if (res.data.Search) {
+        store.Films = res.data;
+      } else {
+        store.Films.Search = ["bulunumadı"];
+        store.Films.totalResults = 0;
+      }
     });
 };
 

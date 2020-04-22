@@ -24,7 +24,6 @@ h6 {
 
 .container-fluid {
   display: flex;
-  height: 100vh;
   padding: 0 0 0 0;
   width: 100%;
   flex-direction: column;
@@ -35,6 +34,7 @@ header {
   color: #fff;
   font-family: $header-font;
   text-align: right;
+  height: 45px;
   padding: 10px;
   li {
     display: inline;
@@ -44,5 +44,56 @@ header {
   }
   li:hover {
     color: $primary-color;
+  }
+  .active {
+    color: $primary-color;
+  }
+  h4#logo {
+    float: left;
+  }
+  h4#logo img {
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+  }
+  .hamburgerMenu {
+    display: none;
+    float: right;
+  }
+}
+.mobile {
+  display: none;
+  width: 100vw;
+  height: calc(100vh - 45px);
+  position: absolute;
+  top: 45px;
+  left: 0;
+  background: $secondary-color;
+  z-index: 5;
+}
+#mobileMenu {
+  ul {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  li {
+    display: block;
+    font-size: 28px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  //phone
+  header #menus {
+    display: none;
+  }
+  header .hamburgerMenu {
+    display: block;
+  }
+  .mobile {
+    display: block;
   }
 }

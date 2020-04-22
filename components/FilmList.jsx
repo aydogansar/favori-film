@@ -10,25 +10,12 @@ const FilmList = ({ type }) => {
       ? "Sonuç bulunamadı"
       : "Henüz favorilere kayıtlı film yok";
   return useObserver(() =>
-    //todo : Daha kısa bir çözüm yazılması lazım
-    type === "search" ? (
-      store.Films.Search ? (
-        store.Films.Search.map((Film) => {
-          return (
-            <FilmBox
-              key={Film.imdbID}
-              id={Film.imdbID}
-              title={Film.Title}
-              poster={Film.Poster}
-              year={Film.Year}
-            />
-          );
-        })
-      ) : (
-        <h4>{message}</h4>
-      )
-    ) : store.Favorites.length !== 0 ? (
-      store.Favorites.map((Film) => {
+    (
+      type === "search"
+        ? store.Films.Search[0] !== "bulunumadı"
+        : store.Favorites.length !== 0
+    ) ? (
+      (type === "search" ? store.Films.Search : store.Favorites).map((Film) => {
         return (
           <FilmBox
             key={Film.imdbID}
@@ -40,7 +27,7 @@ const FilmList = ({ type }) => {
         );
       })
     ) : (
-      <h4>{message}</h4>
+      <h4 className="message">{message}</h4>
     )
   );
 };

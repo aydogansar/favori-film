@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
   return (
     <React.Fragment>
       <Head>
-        <title>Filmlerim</title>
+        <title>FAVORİFİLM</title>
       </Head>
       <Header />
       {children}
