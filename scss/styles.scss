@@ -76,7 +76,8 @@ nav {
   z-index: 5;
   .hamburgerMenu {
     position: fixed;
-    left: 85vh;
+    float: right;
+    right: 10px;
     top: 10px;
   }
 }
