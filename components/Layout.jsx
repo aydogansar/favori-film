@@ -4,6 +4,7 @@ import Head from "next/head";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../scss/index.scss";
 import Header from "./Header";
+import MobileMenu from "./MobileMenu";
 
 const Layout = ({ children }) => {
   const store = useContext(StoreContext);
@@ -19,6 +20,7 @@ const Layout = ({ children }) => {
         <title>FAVORİFİLM</title>
       </Head>
       <Header />
+      <MobileMenu />
       {children}
     </React.Fragment>
   );

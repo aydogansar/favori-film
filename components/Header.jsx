@@ -1,7 +1,6 @@
 import React from "react";
 import Nav from "./Nav";
 import HamburgerMenuComp from "./HamburgerMenuComp";
-import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   return (
@@ -12,7 +11,6 @@ const Header = () => {
       </h4>
       <Nav id="menus" />
       <HamburgerMenuComp />
-      <MobileMenu />
     </header>
   );
 };

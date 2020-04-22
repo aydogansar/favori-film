@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import { StoreContext } from "../store";
 import { useObserver } from "mobx-react";
 import posed from "react-pose";
+import HamburgerMenuComp from "./HamburgerMenuComp";
 
 const Box = posed.div({
   closed: {
@@ -20,6 +21,7 @@ const MobileMenu = () => {
 
   return useObserver(() => (
     <Box className="mobile" pose={store.hamburgerMenuOpen ? "open" : "closed"}>
+      <HamburgerMenuComp />
       <Nav id="mobileMenu" />
     </Box>
   ));

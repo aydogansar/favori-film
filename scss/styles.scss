@@ -36,18 +36,6 @@ header {
   text-align: right;
   height: 45px;
   padding: 10px;
-  li {
-    display: inline;
-    list-style-type: none;
-    cursor: pointer;
-    margin-left: 20px;
-  }
-  li:hover {
-    color: $primary-color;
-  }
-  .active {
-    color: $primary-color;
-  }
   h4#logo {
     float: left;
   }
@@ -61,19 +49,41 @@ header {
     float: right;
   }
 }
+nav {
+  font-family: $header-font;
+  color: #fff;
+  li {
+    display: inline;
+    list-style-type: none;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  li:hover {
+    color: $primary-color;
+  }
+  .active {
+    color: $primary-color;
+  }
+}
 .mobile {
   display: none;
   width: 100vw;
-  position: absolute;
-  top: 45px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
   left: 0;
   background: $secondary-color;
   z-index: 5;
+  .hamburgerMenu {
+    position: fixed;
+    left: 85vh;
+    top: 10px;
+  }
 }
 #mobileMenu {
   ul {
     width: 100%;
-    height: calc(100vh - 65px);
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
